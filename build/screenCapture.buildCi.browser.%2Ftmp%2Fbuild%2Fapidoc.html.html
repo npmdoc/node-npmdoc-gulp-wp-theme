@@ -1,0 +1,254 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a>gulp-wp-theme (v1.0.0)</a>
+</h1>
+<h4>WordPress Theme Project Templates for Gulp </h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-wp-theme">module gulp-wp-theme</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-wp-theme.gulp-wp-theme">
+            function <span class="apidocSignatureSpan"></span>gulp-wp-theme
+            <span class="apidocSignatureSpan">(gulp, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-wp-theme.</span>bundleLogger</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-wp-theme.bundleLogger">module gulp-wp-theme.bundleLogger</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-wp-theme.bundleLogger.end">
+            function <span class="apidocSignatureSpan">gulp-wp-theme.bundleLogger.</span>end
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-wp-theme.bundleLogger.start">
+            function <span class="apidocSignatureSpan">gulp-wp-theme.bundleLogger.</span>start
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-wp-theme.bundleLogger.watch">
+            function <span class="apidocSignatureSpan">gulp-wp-theme.bundleLogger.</span>watch
+            <span class="apidocSignatureSpan">(bundleName)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-wp-theme" id="apidoc.module.gulp-wp-theme">module gulp-wp-theme</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-wp-theme.gulp-wp-theme" id="apidoc.element.gulp-wp-theme.gulp-wp-theme">
+        function <span class="apidocSignatureSpan"></span>gulp-wp-theme
+        <span class="apidocSignatureSpan">(gulp, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gulp-wp-theme = function (gulp, config){
+  // Create final config for this build
+  config = require('./gulp/config')(config);
+
+  require('./gulp/tasks/build')(gulp, config);
+  require('./gulp/tasks/default')(gulp, config);
+  require('./gulp/tasks/browserify')(gulp, config);
+  require('./gulp/tasks/browserSync.js')(gulp, config);
+  require('./gulp/tasks/bump')(gulp, config);
+  require('./gulp/tasks/changelog')(gulp, config);
+  require('./gulp/tasks/copy')(gulp, config);
+  require('./gulp/tasks/images')(gulp, config);
+  require('./gulp/tasks/markup')(gulp, config);
+  require('./gulp/tasks/svg')(gulp, config);
+  require('./gulp/tasks/watch')(gulp, config);
+  require('./gulp/tasks/watchify')(gulp, config);
+  require('./gulp/tasks/styles/stylus')(gulp, config);
+
+  //gutil.log(gulp);
+  return gulp;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-wp-theme.bundleLogger" id="apidoc.module.gulp-wp-theme.bundleLogger">module gulp-wp-theme.bundleLogger</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-wp-theme.bundleLogger.end" id="apidoc.element.gulp-wp-theme.bundleLogger.end">
+        function <span class="apidocSignatureSpan">gulp-wp-theme.bundleLogger.</span>end
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function (filepath) {
+  var taskTime = process.hrtime(startTime);
+  var prettyTime = prettyHrtime(taskTime);
+  gutil.log('Bundled', gutil.colors.green(filepath), 'in', gutil.colors.magenta(prettyTime));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// b.external excludes modules from the bundle, and expects
+// they'll be available externally
+if (bundleConfig.external) b.external(bundleConfig.external);
+      }
+
+      var reportFinished = function() {
+// Log when bundling completes
+bundleLogger.<span class="apidocCodeKeywordSpan">end</span>(bundleConfig.outputName);
+
+if (bundleQueue) {
+  bundleQueue--;
+  if (bundleQueue === 0) {
+    // If queue is empty, tell gulp the task is complete.
+    // https://github.com/gulpjs/gulp/blob/master/docs/API.md#accept-a-callback
+    callback();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-wp-theme.bundleLogger.start" id="apidoc.element.gulp-wp-theme.bundleLogger.start">
+        function <span class="apidocSignatureSpan">gulp-wp-theme.bundleLogger.</span>start
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (filepath) {
+  startTime = process.hrtime();
+  gutil.log('Bundling', gutil.colors.green(filepath) + '...');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+b.transform({
+  global: true
+}, 'uglifyify');
+      }
+
+      var bundle = function() {
+// Log when bundling starts
+bundleLogger.<span class="apidocCodeKeywordSpan">start</span>(bundleConfig.outputName);
+
+return b
+  .bundle()
+  // Report compile errors
+  .on('error', handleErrors)
+  // Use vinyl-source-stream to make the
+  // stream gulp compatible. Specify the
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-wp-theme.bundleLogger.watch" id="apidoc.element.gulp-wp-theme.bundleLogger.watch">
+        function <span class="apidocSignatureSpan">gulp-wp-theme.bundleLogger.</span>watch
+        <span class="apidocSignatureSpan">(bundleName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">watch = function (bundleName) {
+  gutil.log('Watching files required by', gutil.colors.yellow(bundleName));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+if (devMode) {
+  // Wrap with watchify and rebundle on changes
+  b = watchify(b);
+  // Rebundle on update
+  b.on('update', bundle);
+  bundleLogger.<span class="apidocCodeKeywordSpan">watch</span>(bundleConfig.outputName);
+} else {
+  // Sort out shared dependencies.
+  // b.require exposes modules externally
+  if (bundleConfig.require) b.require(bundleConfig.require);
+  // b.external excludes modules from the bundle, and expects
+  // they'll be available externally
+  if (bundleConfig.external) b.external(bundleConfig.external);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
